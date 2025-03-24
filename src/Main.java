@@ -5,7 +5,7 @@
 
 /**
  *
- * @author DIANA GONZALEZ
+ * @author JAVIER GONZALEZ
  */
 public class Main {
     
