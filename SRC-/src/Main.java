@@ -36,23 +36,23 @@ public class Main {
                 switch(opcion) {
                     case 1 -> createVendorsFile(10, "vendedores.csv");
                     case 2 -> createProductsFile(15, "productos.csv");
-                    case 3 -> {
-                        createVendorsFile(10, "vendedores.csv");
-                        createProductsFile(15, "productos.csv");
-                    }
-                    case 4 -> createSalesReport(20, "ventas.csv", "vendedores.csv", "productos.csv");
-                    case 5 -> {
+                    
+                    case 3 -> createSalesReport(20, "ventas.csv", "vendedores.csv", "productos.csv");
+                    case 4 -> createSalesMenFile(10, "Ventas aleatorio.csv");
+                    case 5 -> createProductsFileDetail(12, "informacion productos.csv");
+                    case 6-> createSalesManInfoFile(10, "informacion vendedores.csv")
+                    case 7 -> {
                         createVendorsFile(10, "vendedores.csv");
                         createProductsFile(15, "productos.csv");
                         createSalesReport(20, "ventas.csv", "vendedores.csv", "productos.csv");
                     }
-                    case 6 -> System.out.println("Saliendo del sistema...");
+                    case 8 -> System.out.println("Saliendo del sistema...");
                     default -> System.out.println("Opción no válida!");
                 }
             } catch (IOException e) {
                 System.err.println("Error: " + e.getMessage());
             }
-        } while(opcion != 6);
+        } while(opcion != 8);
     }
 
     //final de codigo de generacion de archivos
@@ -63,10 +63,12 @@ public class Main {
         System.out.println("\n=== GENERADOR DE ARCHIVOS ===");
         System.out.println("1. Generar archivo de vendedores");
         System.out.println("2. Generar archivo de productos");
-        System.out.println("3. Generar archivos de vendedores y productos");
-        System.out.println("4. Generar reporte de ventas");
-        System.out.println("5. Generar todos los archivos");
-        System.out.println("6. Salir");
+        System.out.println("3. Generar reporte de ventas");
+        System.out.println("4. Generar reporte de ventas para vendedor especifico");
+        System.out.println("5. Generar reporte de informacion de productos");
+        System.out.println("6. Generar reporte de informacion de vendedores");
+        System.out.println("7. Generar todos los archivos");
+        System.out.println("8. Salir");
         System.out.print("Seleccione una opción: ");
     }
 
@@ -75,6 +77,18 @@ public class Main {
     //Inicio de codigo para generar la estructura de los archivos y contenido de archivos (Trabajadores, productos y informe de ventas de trabajadores y productos)  
     
     // Métodos para vendedores
+   public static void createSalesMenFile(int randomSalesCount, String name, Long id) {
+       
+   }
+   
+   public static void createProductsFileDetail(int productsCount) {
+       
+   }
+   
+   public static void createSalesManInfoFile(int salesManCount) {
+       
+   }
+   
     public static void createVendorsFile(int vendorsCount, String fileName) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
               new OutputStreamWriter(
