@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class GenerateIntoFiles {
     private static final Random random = new Random();
     private static final Scanner scanner = new Scanner(System.in);
+    // private static final = base de datos (donde se incluyen los nombres, apellidos, productos, etc...)
     
     // Constantes para vendedores
     private static final String TIPO_DOCUMENTO = "CC";
@@ -33,6 +34,8 @@ public class GenerateIntoFiles {
     private static final String[] DESCRIPTORES = {"Premium", "Económico", "Deportivo", "Profesional", "Clásico", "Inteligente"};
     private static final String[] MARCAS = {"HP", "Nike", "Samsung", "Apple", "Adidas", "Dell"};
 
+    //  Inicio de codigo de generacion de archivos
+    
     public static void main(String[] args) {
            int opcion;
         do {
@@ -63,6 +66,10 @@ public class GenerateIntoFiles {
         } while(opcion != 6);
     }
 
+    //final de codigo de generacion de archivos
+    
+    //Inicio de codigo de generacion de menu
+    
     private static void mostrarMenu() {
         System.out.println("\n=== GENERADOR DE ARCHIVOS ===");
         System.out.println("1. Generar archivo de vendedores");
@@ -74,6 +81,10 @@ public class GenerateIntoFiles {
         System.out.print("Seleccione una opción: ");
     }
 
+    //Final de codigo de generacion de menu
+    
+    //Inicio de codigo para generar la estructura de los archivos y contenido de archivos (Trabajadores, productos y informe de ventas de trabajadores y productos)  
+    
     // Métodos para vendedores
     public static void createVendorsFile(int vendorsCount, String fileName) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
@@ -176,10 +187,14 @@ public class GenerateIntoFiles {
         }
     }
 
+
+    
     private static String generateProductName() {
         return CATEGORIAS[random.nextInt(CATEGORIAS.length)] + " " +
                DESCRIPTORES[random.nextInt(DESCRIPTORES.length)] + " " +
                MARCAS[random.nextInt(MARCAS.length)];
     }
+    
+    //Final de codigo para generar la estructura de los archivos
     
 }
