@@ -77,16 +77,31 @@ public class Main {
     //Inicio de codigo para generar la estructura de los archivos y contenido de archivos (Trabajadores, productos y informe de ventas de trabajadores y productos)  
     
     // Métodos para vendedores
-   public static void createSalesMenFile(int randomSalesCount, String name, Long id) {
-       
+   public static void createSalesMenFile(int randomSalesCount, String name, Long id) throws IOException {
+       try (BufferedWriter writer = new BufferedWriter(
+       new OutputStreamWriter(
+       new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
+           
+           
+       }
    }
    
-   public static void createProductsFileDetail(int productsCount) {
-       
+   public static void createProductsFileDetail(int productsCount) throws IOException {
+       try (BufferedWriter writer = new BufferedWriter(
+       new OutputStreamWriter(
+       new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
+           
+           
+       }
    }
    
-   public static void createSalesManInfoFile(int salesManCount) {
-       
+   public static void createSalesManInfoFile(int salesManCount) throws IOException {
+       try (BufferedWriter writer = new BufferedWriter(
+       new OutputStreamWriter(
+       new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
+           
+           
+       }
    }
    
     public static void createVendorsFile(int vendorsCount, String fileName) throws IOException {
