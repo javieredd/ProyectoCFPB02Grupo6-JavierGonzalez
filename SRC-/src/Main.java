@@ -40,7 +40,7 @@ public class Main {
                     case 3 -> createSalesReport(20, "ventas.csv", "vendedores.csv", "productos.csv");
                     case 4 -> createSalesMenFile(10, "Ventas aleatorio.csv");
                     case 5 -> createProductsFileDetail(12, "informacion productos.csv");
-                    case 6-> createSalesManInfoFile(10, "informacion vendedores.csv")
+                    case 6 -> createSalesManInfoFile(10, "informacion vendedores.csv");
                     case 7 -> {
                         createVendorsFile(10, "vendedores.csv");
                         createProductsFile(15, "productos.csv");
