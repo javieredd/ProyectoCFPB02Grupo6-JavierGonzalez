@@ -15,6 +15,7 @@ package Generate.Intofiles;
 //import java.util.Random;
 //import java.util.Scanner;
 //import java.util.ArrayList;
+import java.util.TreeMap;
 
 public class GenerateIntoFiles {
     //Codigo para poder crear las bases de datos
@@ -43,13 +44,16 @@ public class GenerateIntoFiles {
     public static final String[] CATEGORIAS = {"Laptop", "Camiseta", "Zapatos", "Teléfono", "Libro", "Mochila"};
     public static final String[] DESCRIPTORES = {"Premium", "Económico", "Deportivo", "Profesional", "Clásico", "Inteligente"};
     public static final String[] MARCAS = {"HP", "Nike", "Samsung", "Apple", "Adidas", "Dell"};
+    
+    public static final TreeMap <Integer, String> idNombreApellido = new TreeMap<>();
+    idNombreApellido.put (001,"Pablo Paez Gaviria");
 
     //  Inicio de codigo de generacion de archivos
     
     public static void main(String[] args) {
            
+        
     
-    //Final de codigo para generar la estructura de los archivos
                    }
 }
     
