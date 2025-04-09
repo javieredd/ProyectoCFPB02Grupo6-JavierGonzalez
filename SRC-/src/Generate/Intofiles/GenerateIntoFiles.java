@@ -34,7 +34,7 @@ public class GenerateIntoFiles {
                                             "María José", "Juan Pablo", "Sofía Alejandra",
                                             "Diego Armando", "Carmen Rosa", "Laura Beatriz", 
                                             "José Antonio"};
-    public static final String[] APELLIDOS = {"García López", "Rodríguez Pérez", "Martínez González",
+    public static final String[] APELLIDOS = {"Paez Gaviria", "Diaz Bellouli", "Balde Martinez",
                                              "Hernández Sánchez", "López Ramírez", "Pérez Flores",
                                              "Gómez Mendoza", "Díaz Castro", "Vargas Rojas", 
                                              "Morales Suárez"};

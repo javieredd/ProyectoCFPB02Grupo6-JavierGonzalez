@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.TreeMap;
 import static Generate.Intofiles.GenerateIntoFiles.*;
 
 public class Main {
@@ -95,13 +96,25 @@ public class Main {
        }
    }
    
-   public static void createSalesManInfoFile(int salesManCount) throws IOException {
+   public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
        try (BufferedWriter writer = new BufferedWriter(
        new OutputStreamWriter(
-       new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
+       new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
            
-           
+           for (int i = 0; i < salesManCount; i++) {
+                String numeroDoc = String.format("%010d", TreeMap.nextInt(1000000000));
+                String nombre = idNombreApellido[TreeMap.nextInt(idNombreApellido.length)];
+                String apellido = [random.nextInt(APELLIDOS.length)];
+                
+                String line = String.join(";", 
+                        TIPO_DOCUMENTO,
+                        numeroDoc, 
+                        nombre, 
+                        apellido) + System.lineSeparator();
+                
+                writer.write(line);
        }
+       System.out.println("\nArchivo de vendedores generado: " + fileName);
    }
    
     public static void createVendorsFile(int vendorsCount, String fileName) throws IOException {
