@@ -1,3 +1,5 @@
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -16,12 +18,17 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.ArrayList;
 import static Generate.Intofiles.GenerateIntoFiles.*;
 
+
 public class Main {
+
+}
     private static final Scanner scanner = new Scanner(System.in);
     private static final Random random = new Random();
+    
+    
    
 
 
@@ -83,9 +90,11 @@ public class Main {
        new OutputStreamWriter(
        new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
            
+           private static class Auto
            
-       }
-   }
+       }           
+ 
+
    
    public static void createProductsFileDetail(int productsCount) throws IOException {
        try (BufferedWriter writer = new BufferedWriter(
@@ -102,8 +111,8 @@ public class Main {
        new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
            
            for (int i = 0; i < salesManCount; i++) {
-                String numeroDoc = String.format("%010d", TreeMap.nextInt(1000000000));
-                String nombre = idNombreApellido[TreeMap.nextInt(idNombreApellido.length)];
+                String numeroDoc = String.format("%010d", ArrayList.nextInt(1000000000));
+                String Id = IdVendedor [ArrayList.nextInt(id.length)];
                 String apellido = [random.nextInt(APELLIDOS.length)];
                 
                 String line = String.join(";", 
@@ -117,6 +126,7 @@ public class Main {
        System.out.println("\nArchivo de vendedores generado: " + fileName);
    }
    
+       
     public static void createVendorsFile(int vendorsCount, String fileName) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
               new OutputStreamWriter(
@@ -225,4 +235,4 @@ public class Main {
                DESCRIPTORES[random.nextInt(DESCRIPTORES.length)] + " " +
                MARCAS[random.nextInt(MARCAS.length)];
     }
-}
+} 
