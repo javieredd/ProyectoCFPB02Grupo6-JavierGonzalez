@@ -9,6 +9,7 @@
  *
  * @author JAVIER GONZALEZ
  */
+import Generate.Intofiles.GenerateIntoFiles;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,7 +20,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
 import static Generate.Intofiles.GenerateIntoFiles.*;
+ 
 
 
 public class Main {
@@ -48,7 +51,7 @@ public class Main {
                     case 3 -> createSalesReport(20, "ventas.csv", "vendedores.csv", "productos.csv");
                     case 4 -> createSalesMenFile(10, "Ventas aleatorio.csv");
                     case 5 -> createProductsFileDetail(12, "informacion productos.csv");
-                    case 6 -> createSalesManInfoFile(10, "informacion vendedores.csv");
+                    case 6 -> createSalesManInfoFile(11, "informacion vendedores.csv");
                     case 7 -> {
                         createVendorsFile(10, "vendedores.csv");
                         createProductsFile(15, "productos.csv");
@@ -90,7 +93,7 @@ public class Main {
        new OutputStreamWriter(
        new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
            
-           private static class Auto
+           
            
        }           
  
@@ -106,24 +109,10 @@ public class Main {
    }
    
    public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
-       try (BufferedWriter writer = new BufferedWriter(
-       new OutputStreamWriter(
-       new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
-           
-           for (int i = 0; i < salesManCount; i++) {
-                String numeroDoc = String.format("%010d", ArrayList.nextInt(1000000000));
-                String Id = IdVendedor [ArrayList.nextInt(id.length)];
-                String apellido = [random.nextInt(APELLIDOS.length)];
-                
-                String line = String.join(";", 
-                        TIPO_DOCUMENTO,
-                        numeroDoc, 
-                        nombre, 
-                        apellido) + System.lineSeparator();
-                
-                writer.write(line);
-       }
-       System.out.println("\nArchivo de vendedores generado: " + fileName);
+       GenerateIntoFiles generateIntoFiles = new GenerateIntoFiles();
+          GenerateIntoFiles vendedoresInformacion = new Generate.Intofiles.GenerateIntoFiles();
+
+       System.out.println("\nArchivo de informacion de vendedores generado: " + fileName);
    }
    
        
@@ -235,4 +224,4 @@ public class Main {
                DESCRIPTORES[random.nextInt(DESCRIPTORES.length)] + " " +
                MARCAS[random.nextInt(MARCAS.length)];
     }
-} 
+}
