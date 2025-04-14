@@ -9,7 +9,6 @@
  *
  * @author JAVIER GONZALEZ
  */
-import Generate.Intofiles.GenerateIntoFiles;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,7 +20,9 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import static Generate.Intofiles.GenerateIntoFiles.*;
+import Generate.Intofiles.GenerateIntoFiles.Vendedores;
  
 
 
@@ -96,7 +97,7 @@ public class Main {
            
            
        }           
- 
+}
 
    
    public static void createProductsFileDetail(int productsCount) throws IOException {
@@ -109,12 +110,29 @@ public class Main {
    }
    
    public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
-       GenerateIntoFiles generateIntoFiles = new GenerateIntoFiles();
-          GenerateIntoFiles vendedoresInformacion = new Generate.Intofiles.GenerateIntoFiles();
+      try (BufferedWriter writer = new BufferedWriter(
+              new OutputStreamWriter(
+                  new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
+              
+           
+     for (int i = 0; i < salesManCount; i++){
+                
+                String apellido = APELLIDOS[random.nextInt(APELLIDOS.length)];
+                
+                String line = String.join(";", 
+                        id,
+                        TIPO_DOCUMENTO,
+                        numeroDoc, 
+                        nombre, 
+                        apellido) + System.lineSeparator();
+                
+                writer.write(line);
+        }
+       
 
        System.out.println("\nArchivo de informacion de vendedores generado: " + fileName);
    }
-   
+}
        
     public static void createVendorsFile(int vendorsCount, String fileName) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
@@ -224,4 +242,4 @@ public class Main {
                DESCRIPTORES[random.nextInt(DESCRIPTORES.length)] + " " +
                MARCAS[random.nextInt(MARCAS.length)];
     }
-}
+

@@ -18,16 +18,31 @@ package Generate.Intofiles;
 //import java.time.format.DateTimeFormatter;
 //import java.util.Random;
 //import java.util.Scanner; 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList; 
+import java.util.List;
 
 
-class Vendedores {
-    private final String idVendedor; 
-    private final String tipoDocumento;
-    private final String numeroDocumento;
-    private final String nombre;
-    private final String apellidos;
-    private final String edad;
+
+
+
+public class GenerateIntoFiles {
+    
+    public static void main (String[] args) {
+       
+    }
+    
+  public class Vendedores {
+    public final String idVendedor; 
+    public final String tipoDocumento;
+    public final String numeroDocumento;
+    public final String nombre;
+    public final String apellidos;
+    public final String edad;
     
     public Vendedores(String idVendedor, String tipoDocumento, String numeroDocumento, String nombre, String apellidos, String edad) {
         this.idVendedor = idVendedor;
@@ -36,13 +51,7 @@ class Vendedores {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.edad = edad;
-    }
-}
-
-public class GenerateIntoFiles {
-    
-    public static void main (String[] args) {
-       
+        
         Vendedores Gavi = new Vendedores ("A4901", "CC", "252154", "Pablo", "Paez Gaviria", "20");
         Vendedores Balde = new Vendedores ("A4902", "CC", "242346", "Alejandro", "Balde Martinez", "21");
         Vendedores Raphinha = new Vendedores ("A4903", "CC", "735463", "Raphael", "Diaz Bellouli", "27");
@@ -54,8 +63,7 @@ public class GenerateIntoFiles {
         Vendedores Dani = new Vendedores ("A4909", "CC", "852949", "Daniel", "Muñoz Chitiva", "28");
         Vendedores Danio = new Vendedores ("A4910", "CC", "528206", "Daniel", "Olmo Carvajal", "26");
         
-        
-        ArrayList<Vendedores> misVendedores = new ArrayList<>();
+        List<Vendedores> misVendedores = new ArrayList<>();
         misVendedores.add(Gavi);
         misVendedores.add(Balde);
         misVendedores.add(Raphinha);
@@ -67,12 +75,16 @@ public class GenerateIntoFiles {
         misVendedores.add(Dani);
         misVendedores.add(Danio);
         
-       
-        
-        
-        
-        
+       Object[] objArr = misVendedores.toArray();
+  
     }
+    }
+    
+    
+        
+        
+        
+    
 
     
     // Constantes para vendedores
@@ -94,15 +106,12 @@ public class GenerateIntoFiles {
     public static final String[] DESCRIPTORES = {"Premium", "Económico", "Deportivo", "Profesional", "Clásico", "Inteligente"};
     public static final String[] MARCAS = {"HP", "Nike", "Samsung", "Apple", "Adidas", "Dell"};
 
-    public GenerateIntoFiles() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+  
     }
 
-    public GenerateIntoFiles() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+ 
     }
     
-}
     
     
     //Informacion vendedores
