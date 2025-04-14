@@ -116,20 +116,18 @@ public class Main {
               
            
      for (int i = 0; i < salesManCount; i++){
-                
+        String numeroDoc = String.format("%010d", random.nextInt(1000000000));
+                String nombre = NOMBRES[random.nextInt(NOMBRES.length)];
                 String apellido = APELLIDOS[random.nextInt(APELLIDOS.length)];
                 
                 String line = String.join(";", 
-                        id,
                         TIPO_DOCUMENTO,
                         numeroDoc, 
                         nombre, 
                         apellido) + System.lineSeparator();
                 
                 writer.write(line);
-        }
-       
-
+            }
        System.out.println("\nArchivo de informacion de vendedores generado: " + fileName);
    }
 }

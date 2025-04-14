@@ -37,7 +37,7 @@ public class GenerateIntoFiles {
     }
     
   public class Vendedores {
-    public final String idVendedor; 
+    public final String IDVENDEDOR;
     public final String tipoDocumento;
     public final String numeroDocumento;
     public final String nombre;
@@ -45,7 +45,7 @@ public class GenerateIntoFiles {
     public final String edad;
     
     public Vendedores(String idVendedor, String tipoDocumento, String numeroDocumento, String nombre, String apellidos, String edad) {
-        this.idVendedor = idVendedor;
+        this.IDVENDEDOR = idVendedor;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
         this.nombre = nombre;
@@ -80,7 +80,30 @@ public class GenerateIntoFiles {
     }
     }
     
-    
+       public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
+      try (BufferedWriter writer = new BufferedWriter(
+              new OutputStreamWriter(
+                  new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
+              
+           
+     for (int i = 0; i < salesManCount; i++){
+         String numeroId = IDVENDEDOR[Vendedores.nextInt(IDVENDEDOR.lenght)];
+             String numeroDoc = String.format("%010d", random.nextInt(1000000000));
+                String nombre = NOMBRES[random.nextInt(NOMBRES.length)];
+                String apellido = APELLIDOS[random.nextInt(APELLIDOS.length)];
+                
+                String line = String.join(";",
+                        numeroId,
+                        TIPO_DOCUMENTO,
+                        numeroDoc, 
+                        nombre, 
+                        apellido) + System.lineSeparator();
+                
+                writer.write(line);
+            }
+       System.out.println("\nArchivo de informacion de vendedores generado: " + fileName);
+   }
+}
         
         
         
