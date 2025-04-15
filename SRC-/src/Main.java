@@ -18,11 +18,18 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import static Generate.Intofiles.GenerateIntoFiles.*;
-import Generate.Intofiles.GenerateIntoFiles.Vendedores;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.APELLIDOS;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.APELLIDOS_;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.CATEGORIAS;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.DESCRIPTORES;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.EDAD;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.IDVENDEDOR;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.MARCAS;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.NOMBRES;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.NOMBRES_;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.NUMERODOCUMENTO;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.TIPODOCUMENTO;
+import static Generate.Intofiles.GenerateIntoFiles.Vendedores.TIPO_DOCUMENTO;
  
 
 
@@ -50,8 +57,8 @@ public class Main {
                     case 2 -> createProductsFile(15, "productos.csv");
                     
                     case 3 -> createSalesReport(20, "ventas.csv", "vendedores.csv", "productos.csv");
-                    case 4 -> createSalesMenFile(10, "Ventas aleatorio.csv");
-                    case 5 -> createProductsFileDetail(12, "informacion productos.csv");
+                    //case 4 -> createSalesMenFile(10, "Ventas aleatorio.csv");
+                    //case 5 -> createProductsFileDetail(12, "informacion productos.csv");
                     case 6 -> createSalesManInfoFile(11, "informacion vendedores.csv");
                     case 7 -> {
                         createVendorsFile(10, "vendedores.csv");
@@ -89,44 +96,49 @@ public class Main {
     //Inicio de codigo para generar la estructura de los archivos y contenido de archivos (Trabajadores, productos y informe de ventas de trabajadores y productos)  
     
     // Métodos para vendedores
-   public static void createSalesMenFile(int randomSalesCount, String name, Long id) throws IOException {
-       try (BufferedWriter writer = new BufferedWriter(
-       new OutputStreamWriter(
-       new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
+   //public static void createSalesMenFile(int randomSalesCount, String name, Long id) throws IOException {
+       //try (BufferedWriter writer = new BufferedWriter(
+       //new OutputStreamWriter(
+       //new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
            
            
            
-       }           
-}
+       //}           
+//}
 
    
-   public static void createProductsFileDetail(int productsCount) throws IOException {
-       try (BufferedWriter writer = new BufferedWriter(
-       new OutputStreamWriter(
-       new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
+   //public static void createProductsFileDetail(int productsCount) throws IOException {
+       //try (BufferedWriter writer = new BufferedWriter(
+       //new OutputStreamWriter(
+       //new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
            
            
-       }
-   }
+       //}
+   //}
    
    public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
       try (BufferedWriter writer = new BufferedWriter(
               new OutputStreamWriter(
                   new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
-              
-           
-     for (int i = 0; i < salesManCount; i++){
-        String numeroDoc = String.format("%010d", random.nextInt(1000000000));
-                String nombre = NOMBRES[random.nextInt(NOMBRES.length)];
-                String apellido = APELLIDOS[random.nextInt(APELLIDOS.length)];
                 
-                String line = String.join(";", 
-                        TIPO_DOCUMENTO,
-                        numeroDoc, 
+              for (int i = 0; i < salesManCount; i++){            
+                String idVendedor = IDVENDEDOR;
+                String tipoDocumento = TIPODOCUMENTO;
+                String numeroDocumento = NUMERODOCUMENTO;
+                String nombre = NOMBRES_;
+                String apellidos = APELLIDOS_;
+                String edad= EDAD;
+                
+                String line = String.join(";",
+                        idVendedor,
+                        tipoDocumento,
+                        numeroDocumento, 
                         nombre, 
-                        apellido) + System.lineSeparator();
+                        apellidos + System.lineSeparator(),
+                        edad);
+                        
                 
-                writer.write(line);
+                 writer.write(line);
             }
        System.out.println("\nArchivo de informacion de vendedores generado: " + fileName);
    }

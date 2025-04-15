@@ -18,13 +18,16 @@ package Generate.Intofiles;
 //import java.time.format.DateTimeFormatter;
 //import java.util.Random;
 //import java.util.Scanner; 
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+//import java.io.BufferedWriter;
+//import java.io.FileOutputStream;
+//import java.io.IOException;
+//import java.io.OutputStreamWriter;
+//import java.nio.charset.StandardCharsets;
 import java.util.ArrayList; 
-import java.util.List;
+//import java.util.Collection;
+//import java.util.List;
+//import java.util.Collections;
+//import static java.util.Collections.emptyList;
 
 
 
@@ -32,26 +35,27 @@ import java.util.List;
 
 public class GenerateIntoFiles {
     
-    public static void main (String[] args) {
-       
-    }
+  
     
   public class Vendedores {
-    public final String IDVENDEDOR;
-    public final String tipoDocumento;
-    public final String numeroDocumento;
-    public final String nombre;
-    public final String apellidos;
-    public final String edad;
+    public static ArrayList<Vendedores> misVendedores;
+    public static String IDVENDEDOR;
+    public static String TIPODOCUMENTO;
+    public static String NUMERODOCUMENTO;
+    public static String NOMBRES_;
+    public static String APELLIDOS_;
+    public static String EDAD;
     
     public Vendedores(String idVendedor, String tipoDocumento, String numeroDocumento, String nombre, String apellidos, String edad) {
-        this.IDVENDEDOR = idVendedor;
-        this.tipoDocumento = tipoDocumento;
-        this.numeroDocumento = numeroDocumento;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.edad = edad;
+        Vendedores.misVendedores = new ArrayList<>();
+        Vendedores.IDVENDEDOR = idVendedor;
+        Vendedores.TIPODOCUMENTO = tipoDocumento;
+        Vendedores.NUMERODOCUMENTO = numeroDocumento;
+        Vendedores.NOMBRES_ = nombre;
+        Vendedores.APELLIDOS_ = apellidos;
+        Vendedores.EDAD = edad;
         
+       
         Vendedores Gavi = new Vendedores ("A4901", "CC", "252154", "Pablo", "Paez Gaviria", "20");
         Vendedores Balde = new Vendedores ("A4902", "CC", "242346", "Alejandro", "Balde Martinez", "21");
         Vendedores Raphinha = new Vendedores ("A4903", "CC", "735463", "Raphael", "Diaz Bellouli", "27");
@@ -63,7 +67,6 @@ public class GenerateIntoFiles {
         Vendedores Dani = new Vendedores ("A4909", "CC", "852949", "Daniel", "Muñoz Chitiva", "28");
         Vendedores Danio = new Vendedores ("A4910", "CC", "528206", "Daniel", "Olmo Carvajal", "26");
         
-        List<Vendedores> misVendedores = new ArrayList<>();
         misVendedores.add(Gavi);
         misVendedores.add(Balde);
         misVendedores.add(Raphinha);
@@ -75,35 +78,47 @@ public class GenerateIntoFiles {
         misVendedores.add(Dani);
         misVendedores.add(Danio);
         
-       Object[] objArr = misVendedores.toArray();
+         
+
+        
+    }
+
+        
+        
+        
   
-    }
-    }
     
-       public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
-      try (BufferedWriter writer = new BufferedWriter(
-              new OutputStreamWriter(
-                  new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
-              
-           
-     for (int i = 0; i < salesManCount; i++){
-         String numeroId = IDVENDEDOR[Vendedores.nextInt(IDVENDEDOR.lenght)];
-             String numeroDoc = String.format("%010d", random.nextInt(1000000000));
-                String nombre = NOMBRES[random.nextInt(NOMBRES.length)];
-                String apellido = APELLIDOS[random.nextInt(APELLIDOS.length)];
+    //public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
+      //try (BufferedWriter writer = new BufferedWriter(
+              //new OutputStreamWriter(
+                  //new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
+          
+        
+      //for (int i = 0; i < salesManCount; i++){            
+           //     String idVendedor = IDVENDEDOR;
+               // String tipoDocumento = TIPODOCUMENTO;
+           //     String numeroDocumento = NUMERODOCUMENTO;
+               // String nombre = NOMBRES_;
+            //    String apellidos = APELLIDOS_;
+                //String edad= EDAD;
                 
-                String line = String.join(";",
-                        numeroId,
-                        TIPO_DOCUMENTO,
-                        numeroDoc, 
-                        nombre, 
-                        apellido) + System.lineSeparator();
+              //  String line = String.join(";",
+                  //      idVendedor,
+                      //  tipoDocumento,
+               //         numeroDocumento, 
+                   //     nombre, 
+                       // apellidos + System.lineSeparator(),
+                    //    edad);
+                        
                 
-                writer.write(line);
-            }
-       System.out.println("\nArchivo de informacion de vendedores generado: " + fileName);
-   }
-}
+         //        writer.write(line);
+         //   }
+  //     System.out.println("\nArchivo de informacion de vendedores generado: " + fileName);
+  // }
+//}
+ //   }
+    
+       
         
         
         
@@ -130,10 +145,11 @@ public class GenerateIntoFiles {
     public static final String[] MARCAS = {"HP", "Nike", "Samsung", "Apple", "Adidas", "Dell"};
 
   
-    }
+  }
+}
 
  
-    }
+    
     
     
     
