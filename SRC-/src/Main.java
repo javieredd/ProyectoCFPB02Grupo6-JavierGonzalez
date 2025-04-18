@@ -9,6 +9,15 @@
  *
  * @author JAVIER GONZALEZ
  */
+
+import static Generate.Intofiles.GenerateIntoFiles.APELLIDOS;
+import static Generate.Intofiles.GenerateIntoFiles.CATEGORIAS;
+import static Generate.Intofiles.GenerateIntoFiles.DESCRIPTORES;
+import static Generate.Intofiles.GenerateIntoFiles.MARCAS;
+import static Generate.Intofiles.GenerateIntoFiles.NOMBRES;
+import static Generate.Intofiles.GenerateIntoFiles.TIPO_DOCUMENTO;
+import static Generate.Intofiles.GenerateIntoFiles.createSalesManInfoFile;
+import static Generate.Intofiles.GenerateIntoFiles.listaVendedores;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,19 +27,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.Scanner;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.APELLIDOS;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.APELLIDOS_;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.CATEGORIAS;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.DESCRIPTORES;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.EDAD;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.IDVENDEDOR;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.MARCAS;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.NOMBRES;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.NOMBRES_;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.NUMERODOCUMENTO;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.TIPODOCUMENTO;
-import static Generate.Intofiles.GenerateIntoFiles.Vendedores.TIPO_DOCUMENTO;
- 
+
 
 
 public class Main {
@@ -38,7 +35,7 @@ public class Main {
 }
     private static final Scanner scanner = new Scanner(System.in);
     private static final Random random = new Random();
-    
+    //private static final ArrayList arrays = new ArrayList();
     
    
 
@@ -59,7 +56,7 @@ public class Main {
                     case 3 -> createSalesReport(20, "ventas.csv", "vendedores.csv", "productos.csv");
                     //case 4 -> createSalesMenFile(10, "Ventas aleatorio.csv");
                     //case 5 -> createProductsFileDetail(12, "informacion productos.csv");
-                    case 6 -> createSalesManInfoFile(11, "informacion vendedores.csv");
+                    case 6 -> createSalesManInfoFile(listaVendedores.size(), "informacion vendedores.csv");
                     case 7 -> {
                         createVendorsFile(10, "vendedores.csv");
                         createProductsFile(15, "productos.csv");
@@ -103,48 +100,11 @@ public class Main {
            
            
            
-       //}           
-//}
+  
+   
+   
 
-   
-   //public static void createProductsFileDetail(int productsCount) throws IOException {
-       //try (BufferedWriter writer = new BufferedWriter(
-       //new OutputStreamWriter(
-       //new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
-           
-           
-       //}
-   //}
-   
-   public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
-      try (BufferedWriter writer = new BufferedWriter(
-              new OutputStreamWriter(
-                  new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
-                
-              for (int i = 0; i < salesManCount; i++){            
-                String idVendedor = IDVENDEDOR;
-                String tipoDocumento = TIPODOCUMENTO;
-                String numeroDocumento = NUMERODOCUMENTO;
-                String nombre = NOMBRES_;
-                String apellidos = APELLIDOS_;
-                String edad= EDAD;
-                
-                String line = String.join(";",
-                        idVendedor,
-                        tipoDocumento,
-                        numeroDocumento, 
-                        nombre, 
-                        apellidos + System.lineSeparator(),
-                        edad);
-                        
-                
-                 writer.write(line);
-            }
-       System.out.println("\nArchivo de informacion de vendedores generado: " + fileName);
-   }
-}
-       
-    public static void createVendorsFile(int vendorsCount, String fileName) throws IOException {
+  public static void createVendorsFile(int vendorsCount, String fileName) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
               new OutputStreamWriter(
                   new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
