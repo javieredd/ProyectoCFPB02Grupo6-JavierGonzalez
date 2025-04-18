@@ -42,16 +42,16 @@ import java.util.Random;
 
 public class GenerateIntoFiles {
 
-    public static class Vendedores {
+    public static class Vendedor {
         private final String idVendedor;
-        private final  String tipoDocumento;
+        private final String tipoDocumento;
         private final String numeroDocumento;
         private final String nombre;
         private final String apellidos;
         private final String edad;
 
-        public Vendedores(String idVendedor, String tipoDocumento, String numeroDocumento,
-                          String nombre, String apellidos, String edad) {
+        public Vendedor(String idVendedor, String tipoDocumento, String numeroDocumento,
+                        String nombre, String apellidos, String edad) {
             this.idVendedor = idVendedor;
             this.tipoDocumento = tipoDocumento;
             this.numeroDocumento = numeroDocumento;
@@ -60,41 +60,47 @@ public class GenerateIntoFiles {
             this.edad = edad;
         }
 
-        public String toFileString() {
-            return String.join(";", idVendedor, tipoDocumento, numeroDocumento, nombre, apellidos, edad);
+        public String[] toStringArray() {
+            return new String[]{idVendedor, tipoDocumento, numeroDocumento, nombre, apellidos, edad};
         }
     }
 
-    // Lista para almacenar los vendedores
-    public static ArrayList<Vendedores> listaVendedores = new ArrayList<>();
+    // Lista fija con vendedores definidos manualmente
+    public static final ArrayList<Vendedor> listaVendedores = new ArrayList<>();
 
-    public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
+    public static void createSalesManInfoFile(int vendorsCount, String fileName) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
                 new OutputStreamWriter(new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
 
-            // Escribimos encabezado
+            // Encabezado
             writer.write("ID Vendedor;Tipo Documento;Numero Documento;Nombre;Apellidos;Edad");
             writer.newLine();
 
-            for (int i = 0; i < salesManCount && i < listaVendedores.size(); i++) {
-                Vendedores v = listaVendedores.get(i);
-                writer.write(v.toFileString());
-                writer.newLine();
+            for (int i = 0; i < vendorsCount && i < listaVendedores.size(); i++) {
+                Vendedor v = listaVendedores.get(i);
+
+                String line = String.join(";", v.toStringArray()) + System.lineSeparator();
+                writer.write(line);
             }
 
-            System.out.println("\nArchivo de informacion vendedores generado: " + new File(fileName).getAbsolutePath());
+            System.out.println("\n✅ Archivo de información generado: " + new File(fileName).getAbsolutePath());
         }
     }
 
     public static void main(String[] args) throws IOException {
-        // Agregamos algunos vendedores a la lista
-        listaVendedores.add(new Vendedores("A4901", "CC", "123456", "Pablo", "Paez Gaviria", "20"));
-        listaVendedores.add(new Vendedores("A4902", "CC", "654321", "Alejandro", "Balde Martinez", "21"));
-        listaVendedores.add(new Vendedores("A4903", "CC", "789123", "Raphael", "Diaz Bellouli", "27"));
-        listaVendedores.add(new Vendedores("A4904", "CC", "321987", "Pedro", "Gonzalez Lopez", "22"));
+        listaVendedores.add(new Vendedor("A4901", "CC", "123456", "Pablo", "Paez Gaviria", "20"));
+        listaVendedores.add(new Vendedor("A4902", "CC", "654321", "Alejandro", "Balde Martinez", "21"));
+        listaVendedores.add(new Vendedor("A4903", "CC", "789123", "Raphael", "Diaz Bellouli", "27"));
+        listaVendedores.add(new Vendedor("A4904", "CC", "321987", "Pedro", "Gonzalez Lopez", "22"));
 
         createSalesManInfoFile(listaVendedores.size(), "vendedores.csv");
 
+        // (Opcional) Abrir automáticamente el archivo
+        File archivo = new File("vendedores.csv");
+        if (archivo.exists()) {
+            java.awt.Desktop.getDesktop().open(archivo);
+        }
+    
     }
 
 
