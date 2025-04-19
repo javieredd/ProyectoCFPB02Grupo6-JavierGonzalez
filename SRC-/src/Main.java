@@ -17,6 +17,7 @@ import static Generate.Intofiles.GenerateIntoFiles.EDAD;
 import static Generate.Intofiles.GenerateIntoFiles.IDVENDEDOR;
 import static Generate.Intofiles.GenerateIntoFiles.MARCAS;
 import static Generate.Intofiles.GenerateIntoFiles.NOMBRES;
+import static Generate.Intofiles.GenerateIntoFiles.SEXO;
 import static Generate.Intofiles.GenerateIntoFiles.TIPO_DOCUMENTO;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -106,7 +107,7 @@ public class Main {
                   new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
           
         
-                   writer.write("Tipo documento; ID vendedor; Numero documento; Edad; Cantidad ventas; Nombre; Apellido");
+                   writer.write("Tipo documento; ID vendedor; Numero documento; Edad; Sexo; Nombre; Apellido");
                    writer.newLine();
                    writer.newLine();
 
@@ -114,7 +115,7 @@ public class Main {
                        String idVendedor = IDVENDEDOR[random.nextInt(IDVENDEDOR.length)];
                         String numeroDocumento = String.format("%010d", random.nextInt(1000000000));
                          String edad = EDAD[random.nextInt(EDAD.length)];
-                         String cantidadVentas = String.format("%010d", random.nextInt(1000));
+                         //String cantidadVentas = String.format("%010d", random.nextInt(1000));
                         String nombre = NOMBRES[random.nextInt(NOMBRES.length)];
                         String apellidos = APELLIDOS[random.nextInt(APELLIDOS.length)];
                         
@@ -124,7 +125,7 @@ public class Main {
                        idVendedor,
                        numeroDocumento, 
                         edad,
-                         cantidadVentas,
+                        SEXO,
                         nombre, 
                        apellidos) + System.lineSeparator();
                          

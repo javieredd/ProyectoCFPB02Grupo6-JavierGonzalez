@@ -33,14 +33,9 @@ package Generate.Intofiles;
 
 
 public class GenerateIntoFiles {  
-    
- //   }
-    
- 
+     
     // Constantes para vendedores
     public static final String TIPO_DOCUMENTO = "CC";
-    //private static final String NUMERO_DOCUMENTO = "asdasd";
-   
    
     public static final String[] NOMBRES = {"Pablo", "Raphael", "Alejandro", 
                                             "Pedro", "Paulo", "Hector",
@@ -56,6 +51,7 @@ public class GenerateIntoFiles {
         "A4919", "A4920"};
     
    public static final String[] EDAD = {"21", "20", "27", "22", "28", "26", "18", "19", "25", "24"};
+   public static final String SEXO = "Masculino";
     
    
    
