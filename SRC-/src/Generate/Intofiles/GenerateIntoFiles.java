@@ -68,7 +68,7 @@ public class GenerateIntoFiles {
     // Lista fija con vendedores definidos manualmente
     public static final ArrayList<Vendedor> listaVendedores = new ArrayList<>();
 
-    public static void createSalesManInfoFile(int vendorsCount, String fileName) throws IOException {
+    public static void createSalesManInfoFile(int SalesManCount, String fileName) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
                 new OutputStreamWriter(new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
 
@@ -76,7 +76,7 @@ public class GenerateIntoFiles {
             writer.write("ID Vendedor;Tipo Documento;Numero Documento;Nombre;Apellidos;Edad");
             writer.newLine();
 
-            for (int i = 0; i < vendorsCount && i < listaVendedores.size(); i++) {
+            for (int i = 0; i < SalesManCount && i < listaVendedores.size(); i++) {
                 Vendedor v = listaVendedores.get(i);
 
                 String line = String.join(";", v.toStringArray()) + System.lineSeparator();
@@ -96,10 +96,7 @@ public class GenerateIntoFiles {
         createSalesManInfoFile(listaVendedores.size(), "vendedores.csv");
 
         // (Opcional) Abrir automáticamente el archivo
-        File archivo = new File("vendedores.csv");
-        if (archivo.exists()) {
-            java.awt.Desktop.getDesktop().open(archivo);
-        }
+        
     
     }
 
