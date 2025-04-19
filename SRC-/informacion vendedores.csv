@@ -1,1 +1,11 @@
-ID Vendedor;Tipo Documento;Numero Documento;Nombre;Apellidos;Edad
+Tipo documento; ID vendedor; Numero documento; Edad; Cantidad ventas; Nombre; Apellido
+CC;A4905;0511423958;28;0000000183;Hector;Cubarsi Paredes
+CC;A4907;0916972748;24;0000000527;Paulo;Victor Delgado
+CC;A4907;0242967168;21;0000000109;Paulo;Cubarsi Paredes
+CC;A4901;0266160204;21;0000000685;Pedro;Diaz Bellouli
+CC;A4908;0801198689;26;0000000919;Hector;Rodriguez Crespo
+CC;A4903;0444594695;19;0000000494;Antonio;Diaz Bellouli
+CC;A4905;0469091218;22;0000000391;Raphael;Diaz Bellouli
+CC;A4906;0006045178;27;0000000878;Antonio;Balde Martinez
+CC;A4910;0288516449;26;0000000079;Alejandro;Fort Garcia
+CC;A4906;0514506934;25;0000000001;Paulo;Gonzalez Lopez
