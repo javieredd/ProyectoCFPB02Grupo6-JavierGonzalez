@@ -66,6 +66,9 @@ public class Main {
                         createVendorsFile(10, "vendedores.csv");
                         createProductsFile(15, "productos.csv");
                         createSalesReport(20, "ventas.csv", "vendedores.csv", "productos.csv");
+                        createSalesMenFile(1,"Ventas por vendedor.csv");
+                        createProductsFileDetail(12,"informacion productos.csv");
+                        createSalesManInfoFile(10, "informacion vendedores.csv");
                     }
                     case 8 -> System.out.println("Saliendo del sistema...");
                     default -> System.out.println("Opción no válida!");
