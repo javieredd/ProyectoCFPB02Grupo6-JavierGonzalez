@@ -81,9 +81,9 @@ public class GenerateIntoFiles {
       
     public static final CharSequence UNIQUE_ID = String.valueOf(generateUniqueId());
     public static long generateUniqueId() {
-        long timePart = System.currentTimeMillis(); // Parte de tiempo (13 dígitos)
-        long randomPart = ThreadLocalRandom.current().nextLong(1000); // Hasta 3 dígitos aleatorios
-        return timePart * 1000 + randomPart; // Combina ambos para formar un ID único tipo long
+        long timePart = System.currentTimeMillis(); 
+        long randomPart = ThreadLocalRandom.current().nextLong(1000); 
+        return timePart * 1000 + randomPart; 
     }
 
 } 

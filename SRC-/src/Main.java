@@ -99,44 +99,34 @@ public class Main {
    
 
      //Vendedor especifico
- public static long createSalesMenFile(int randomSalesCount, String fileName) throws IOException {
+ public static void createSalesMenFile(int randomSalesCount, String fileName) throws IOException {
          try (BufferedWriter writer = new BufferedWriter(
             new OutputStreamWriter(
                 new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
            
-                   writer.write("ID unico; Nombre producto; Cantidad ventas; Vendedor");
+                   writer.write("ID unico; Nombre producto; Cantidad vendida; Vendedor");
                    writer.newLine();
                    writer.newLine();
                
-              
-
             for (int i = 0; i < randomSalesCount; i++){            
                        
                 String nombreProducto = NOMBREPR[random.nextInt(NOMBREPR.length)];
                 String cantidadVentas = String.format("%010d", random.nextInt(1000));
                 String nombre = NOMBRES[random.nextInt(NOMBRES.length)];
                 String apellidos = APELLIDOS[random.nextInt(APELLIDOS.length)];
-                
-                       
-                    
-            
+         
+
                       String line = String.join(";",
                        UNIQUE_ID, 
                        nombreProducto,
                        cantidadVentas,
                        nombre,
                        apellidos) + System.lineSeparator();
-                         
-               
-
-                    
-                
+              
                  writer.write(line);
             }
        System.out.println("\nArchivo de informacion de productos generado: " + fileName);
    }
-    return 0;
-
 }
 
 
