@@ -11,12 +11,14 @@
  */
 
 import static Generate.Intofiles.GenerateIntoFiles.APELLIDOS;
+import static Generate.Intofiles.GenerateIntoFiles.CATEGORIA;
 import static Generate.Intofiles.GenerateIntoFiles.CATEGORIAS;
 import static Generate.Intofiles.GenerateIntoFiles.DESCRIPTORES;
 import static Generate.Intofiles.GenerateIntoFiles.EDAD;
 import static Generate.Intofiles.GenerateIntoFiles.IDPRODUCTO;
 import static Generate.Intofiles.GenerateIntoFiles.IDVENDEDOR;
 import static Generate.Intofiles.GenerateIntoFiles.MARCAS;
+import static Generate.Intofiles.GenerateIntoFiles.NOMBREPR;
 import static Generate.Intofiles.GenerateIntoFiles.NOMBRES;
 import static Generate.Intofiles.GenerateIntoFiles.SEXO;
 import static Generate.Intofiles.GenerateIntoFiles.TIPO_DOCUMENTO;
@@ -95,40 +97,45 @@ public class Main {
     //Inicio de codigo para generar la estructura de los archivos y contenido de archivos (Trabajadores, productos y informe de ventas de trabajadores y productos)  
     
     // Productos
-    public static void createProductsFileDetail(int productsCount, String name, Long id, String fileName) throws IOException {
+    public static void createProductsFileDetail(int productsCount, String fileName) throws IOException {
          try (BufferedWriter writer = new BufferedWriter(
             new OutputStreamWriter(
                 new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
            
-                   writer.write("ID producto; Nombre producto; Marca; Precio unidad; Cantidad; Demanda");
+                   writer.write("ID producto; Nombre producto; Marca; Categoria; Precio unidad; Cantidad; Demanda");
                    writer.newLine();
                    writer.newLine();
 
             for (int i = 0; i < productsCount; i++){            
                        String idProducto = IDPRODUCTO[random.nextInt(IDPRODUCTO.length)];
-                        String numeroDocumento = String.format("%010d", random.nextInt(1000000000));
-                         String edad = EDAD[random.nextInt(EDAD.length)];
+                       String nombreProducto = NOMBREPR[random.nextInt(NOMBREPR.length)];
+                         String marca = MARCAS[random.nextInt(MARCAS.length)];
                          //String cantidadVentas = String.format("%010d", random.nextInt(1000));
-                        String nombre = NOMBRES[random.nextInt(NOMBRES.length)];
-                        String apellidos = APELLIDOS[random.nextInt(APELLIDOS.length)];
-                        
+                        String precio = String.format("%.2f", 10.0 + (990.0 * random.nextDouble()));
+                        String cantidad = String.format("%010d", random.nextInt(1000));
+                        String demanda = String.format("%010d", random.nextInt(1000));
                 
                       String line = String.join(";",
                        idProducto,
-                       numeroDocumento, 
-                        edad,
-                        SEXO,
-                        nombre, 
-                       apellidos) + System.lineSeparator();
+                       nombreProducto, 
+                        marca,
+                        CATEGORIA,
+                        precio,
+                        cantidad,
+                        demanda) + System.lineSeparator();
                          
                         
                 
                  writer.write(line);
             }
-       System.out.println("\nArchivo de informacion de vendedores generado: " + fileName);
+       System.out.println("\nArchivo de informacion de productos generado: " + fileName);
    }
 
   }
+
+
+
+
 
 //Vendedores
   public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
@@ -168,7 +175,10 @@ public class Main {
 }
    
    
-//Metodo para productos
+
+
+
+//Metodo para vendedores
   public static void createVendorsFile(int vendorsCount, String fileName) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
               new OutputStreamWriter(

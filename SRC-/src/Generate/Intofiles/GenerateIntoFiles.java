@@ -66,6 +66,7 @@ public class GenerateIntoFiles {
        "Gorra de gel", "Balon Basket NBA Drive", "Eliptica", "Balon Voleibol playa", "Banco de pesas", "AIR MAX", 
        "RAPIDMOVE ADV"};
    
+   public static final String CATEGORIA = "Deportes";
    
     public static final String[] CATEGORIAS = {"Laptop", "Camiseta", "Zapatos", "Teléfono", "Libro", "Mochila"};
     
