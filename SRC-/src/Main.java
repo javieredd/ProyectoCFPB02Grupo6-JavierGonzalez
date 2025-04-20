@@ -22,6 +22,7 @@ import static Generate.Intofiles.GenerateIntoFiles.NOMBREPR;
 import static Generate.Intofiles.GenerateIntoFiles.NOMBRES;
 import static Generate.Intofiles.GenerateIntoFiles.SEXO;
 import static Generate.Intofiles.GenerateIntoFiles.TIPO_DOCUMENTO;
+import static Generate.Intofiles.GenerateIntoFiles.UNIQUE_ID;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -58,7 +59,7 @@ public class Main {
                     case 2 -> createProductsFile(15, "productos.csv");
                     
                     case 3 -> createSalesReport(20, "ventas.csv", "vendedores.csv", "productos.csv");
-                    //case 4 -> createSalesMenFile(10, "Ventas aleatorio.csv");
+                    case 4 -> createSalesMenFile(1, "Ventas por vendedor.csv");
                     case 5 -> createProductsFileDetail(12, "informacion productos.csv");
                     case 6 -> createSalesManInfoFile(10, "informacion vendedores.csv");
                     case 7 -> {
@@ -95,7 +96,50 @@ public class Main {
     //Final de codigo de generacion de menu
     
     //Inicio de codigo para generar la estructura de los archivos y contenido de archivos (Trabajadores, productos y informe de ventas de trabajadores y productos)  
-    
+   
+
+     //Vendedor especifico
+ public static long createSalesMenFile(int randomSalesCount, String fileName) throws IOException {
+         try (BufferedWriter writer = new BufferedWriter(
+            new OutputStreamWriter(
+                new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
+           
+                   writer.write("ID unico; Nombre producto; Cantidad ventas; Vendedor");
+                   writer.newLine();
+                   writer.newLine();
+               
+              
+
+            for (int i = 0; i < randomSalesCount; i++){            
+                       
+                String nombreProducto = NOMBREPR[random.nextInt(NOMBREPR.length)];
+                String cantidadVentas = String.format("%010d", random.nextInt(1000));
+                String nombre = NOMBRES[random.nextInt(NOMBRES.length)];
+                String apellidos = APELLIDOS[random.nextInt(APELLIDOS.length)];
+                
+                       
+                    
+            
+                      String line = String.join(";",
+                       UNIQUE_ID, 
+                       nombreProducto,
+                       cantidadVentas,
+                       nombre,
+                       apellidos) + System.lineSeparator();
+                         
+               
+
+                    
+                
+                 writer.write(line);
+            }
+       System.out.println("\nArchivo de informacion de productos generado: " + fileName);
+   }
+    return 0;
+
+}
+
+
     // Productos
     public static void createProductsFileDetail(int productsCount, String fileName) throws IOException {
          try (BufferedWriter writer = new BufferedWriter(

@@ -2,6 +2,8 @@ package Generate.Intofiles;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -74,8 +76,20 @@ public class GenerateIntoFiles {
     
     public static final String[] MARCAS = {"QMAX", "Nike", "SEVEN", "Golty", "Adidas", "MAGNUX", "SFORZO",
     "SKY", "Wilson", "ATHLETIC", "ULTRA", "GYMAX"};
+ 
+    
+      
+    public static final CharSequence UNIQUE_ID = String.valueOf(generateUniqueId());
+    public static long generateUniqueId() {
+        long timePart = System.currentTimeMillis(); // Parte de tiempo (13 dígitos)
+        long randomPart = ThreadLocalRandom.current().nextLong(1000); // Hasta 3 dígitos aleatorios
+        return timePart * 1000 + randomPart; // Combina ambos para formar un ID único tipo long
+    }
 
-}
+} 
+
+
+
   
   
 
