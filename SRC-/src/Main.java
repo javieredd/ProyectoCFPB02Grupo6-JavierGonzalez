@@ -14,6 +14,7 @@ import static Generate.Intofiles.GenerateIntoFiles.APELLIDOS;
 import static Generate.Intofiles.GenerateIntoFiles.CATEGORIAS;
 import static Generate.Intofiles.GenerateIntoFiles.DESCRIPTORES;
 import static Generate.Intofiles.GenerateIntoFiles.EDAD;
+import static Generate.Intofiles.GenerateIntoFiles.IDPRODUCTO;
 import static Generate.Intofiles.GenerateIntoFiles.IDVENDEDOR;
 import static Generate.Intofiles.GenerateIntoFiles.MARCAS;
 import static Generate.Intofiles.GenerateIntoFiles.NOMBRES;
@@ -56,8 +57,8 @@ public class Main {
                     
                     case 3 -> createSalesReport(20, "ventas.csv", "vendedores.csv", "productos.csv");
                     //case 4 -> createSalesMenFile(10, "Ventas aleatorio.csv");
-                    //case 5 -> createProductsFileDetail(12, "informacion productos.csv");
-                    case 6 -> createSalesManIntoFile(10, "informacion vendedores.csv");
+                    case 5 -> createProductsFileDetail(12, "informacion productos.csv");
+                    case 6 -> createSalesManInfoFile(10, "informacion vendedores.csv");
                     case 7 -> {
                         createVendorsFile(10, "vendedores.csv");
                         createProductsFile(15, "productos.csv");
@@ -93,15 +94,44 @@ public class Main {
     
     //Inicio de codigo para generar la estructura de los archivos y contenido de archivos (Trabajadores, productos y informe de ventas de trabajadores y productos)  
     
-    // Métodos para vendedores
-   //public static void createSalesMenFile(int randomSalesCount, String name, Long id) throws IOException {
-       //try (BufferedWriter writer = new BufferedWriter(
-       //new OutputStreamWriter(
-       //new FileOutputStream(fileName), StandarCharsets.UTF_8))) {
+    // Productos
+    public static void createProductsFileDetail(int productsCount, String name, Long id, String fileName) throws IOException {
+         try (BufferedWriter writer = new BufferedWriter(
+            new OutputStreamWriter(
+                new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
            
-           
-           
-  public static void createSalesManIntoFile(int salesManCount, String fileName) throws IOException {
+                   writer.write("ID producto; Nombre producto; Marca; Precio unidad; Cantidad; Demanda");
+                   writer.newLine();
+                   writer.newLine();
+
+            for (int i = 0; i < productsCount; i++){            
+                       String idProducto = IDPRODUCTO[random.nextInt(IDPRODUCTO.length)];
+                        String numeroDocumento = String.format("%010d", random.nextInt(1000000000));
+                         String edad = EDAD[random.nextInt(EDAD.length)];
+                         //String cantidadVentas = String.format("%010d", random.nextInt(1000));
+                        String nombre = NOMBRES[random.nextInt(NOMBRES.length)];
+                        String apellidos = APELLIDOS[random.nextInt(APELLIDOS.length)];
+                        
+                
+                      String line = String.join(";",
+                       idProducto,
+                       numeroDocumento, 
+                        edad,
+                        SEXO,
+                        nombre, 
+                       apellidos) + System.lineSeparator();
+                         
+                        
+                
+                 writer.write(line);
+            }
+       System.out.println("\nArchivo de informacion de vendedores generado: " + fileName);
+   }
+
+  }
+
+//Vendedores
+  public static void createSalesManInfoFile(int salesManCount, String fileName) throws IOException {
       try (BufferedWriter writer = new BufferedWriter(
               new OutputStreamWriter(
                   new FileOutputStream(fileName), StandardCharsets.UTF_8))) {
@@ -138,7 +168,7 @@ public class Main {
 }
    
    
-
+//Metodo para productos
   public static void createVendorsFile(int vendorsCount, String fileName) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
               new OutputStreamWriter(

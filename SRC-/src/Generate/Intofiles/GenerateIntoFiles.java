@@ -1,5 +1,8 @@
 package Generate.Intofiles;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
@@ -34,7 +37,7 @@ package Generate.Intofiles;
 
 public class GenerateIntoFiles {  
      
-    // Constantes para vendedores
+    // Vendedores
     public static final String TIPO_DOCUMENTO = "CC";
    
     public static final String[] NOMBRES = {"Pablo", "Raphael", "Alejandro", 
@@ -54,11 +57,22 @@ public class GenerateIntoFiles {
    public static final String SEXO = "Masculino";
     
    
+   //Productoss
+   public static final String[] IDPRODUCTO = {"B4901", "B4902", "B4903", "B4904", "B4905", "B4906", "B4907", 
+        "B4908", "B4909", "B4910", "B4911", "B4912", "B4913", "B4914", "B4915", "B4916", "B4917", "B4918", 
+        "B4919", "B4920"};
    
-    // Constantes para productos
+   public static final String[] NOMBREPR = {"Patines", "Bicicleta", "New G32", "Caminadora", "Bicieta montaña", 
+       "Gorra de gel", "Balon Basket NBA Drive", "Eliptica", "Balon Voleibol playa", "Banco de pesas", "AIR MAX", 
+       "RAPIDMOVE ADV"};
+   
+   
     public static final String[] CATEGORIAS = {"Laptop", "Camiseta", "Zapatos", "Teléfono", "Libro", "Mochila"};
+    
     public static final String[] DESCRIPTORES = {"Premium", "Económico", "Deportivo", "Profesional", "Clásico", "Inteligente"};
-    public static final String[] MARCAS = {"HP", "Nike", "Samsung", "Apple", "Adidas", "Dell"};
+    
+    public static final String[] MARCAS = {"QMAX", "Nike", "SEVEN", "Golty", "Adidas", "MAGNUX", "SFORZO",
+    "SKY", "Wilson", "ATHLETIC", "ULTRA", "GYMAX"};
 
 }
   
