@@ -1,10 +1,10 @@
 -Integrantes
  1. Javier Gonzalez
 -Enlace repositorio: https://github.com/javieredd/ProyectoCFPB02Grupo6-JavierGonzalez
+-Enlace video:
  
 Actalización de contenido:
--Clase Main
--Metodos en la clase Main
--Implementación de la base de los nuevos metodos en la clase Main
--Actualización de menú para la generación de archivos
--Actualización de la base de datos (Vendedores, Productos, ID, precios, etc.)
+-Clase Main finalizada
+-Metodos en la clase Main finalizados
+-Generación de archivos finalizados
+-Bases de datos finalizadas

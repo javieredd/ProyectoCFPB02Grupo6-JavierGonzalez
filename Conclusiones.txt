@@ -1,0 +1,28 @@
+-Lo aprendido durante el proyecto de programación.
+
+Durante el desarrollo del proyecto, aprendi a crear bases de datos y tener la
+capacidad de enlazar dichas bases de datos a metodos que estructuran algun tipo de
+información que llega al usuario de forma correcta.
+
+-Posibles aplicaciones en la vida profesional.
+
+Para mi vida profesional, se pueden haccer apliaciones sobre todo en la prueba 
+de prototipos, soy diseñador y para poder probar elementos en paginas web o probar
+diseños, la programación me agiliza dicho trabajo para la muestra a futuros 
+clientes.
+
+-Dificultades presentadas durante el proyecto.
+
+Durante el proyecto presente las dificultades del enlace de ciertos elementos de las
+bases de datos, sobre todo del manejo de la arrayList y su correcta citación en el 
+codigo.
+
+
+-Conclusiones trabajo findal programación.
+
+Las conclusiones que he podido sacar del proyecto, es que es un buen ejericico incial
+para poder comprender los elemenos basicos de progrmación y de como generar y crear
+un archivo. Creo que la forma en la que se enseño el codigo fue clara, quizas falto un 
+poco mas de profundidad en la exploración de mapas de datos mas sofisticados y en la 
+creación de interfaces. En general mi conclusión es positiva frente al proyecto aprendi
+elementos basicos de programación y estoy satsifecho con mi resultado.
