@@ -1,7 +1,7 @@
 -Integrantes
  1. Javier Gonzalez
 -Enlace repositorio: https://github.com/javieredd/ProyectoCFPB02Grupo6-JavierGonzalez
--Enlace video:
+-Enlace video:https://vimeo.com/1080048114?share=copy#t=0
  
 Actalización de contenido:
 -Clase Main finalizada
